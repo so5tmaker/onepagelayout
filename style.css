@@ -1,0 +1,199 @@
+/* --------------- reset.css --------------- */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, em, img, strong, sub, sup, b, u, i,  dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;                     /* обнуляем отступы и убираем бордюры */
+	vertical-align: baseline;      /* приводим все к одной базовой линии */
+	background: transparent;      /* чтобы не проскакивали левые фоны, установленные по умолчанию */
+	font-size: 100%;             /* размер шрифта всем одинаковый */
+}
+a {                             /* ссылка не в общем списке чтобы не сбрасывать outline по умолчанию */
+	margin:0;
+	padding:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+	outline:none;
+}
+input, select, button, textarea {
+	margin: 0; 				/* убираем отступы по умолчанию для элементов форм (в частности для checkbox и radio) */
+	font-size: 100%; 		/* делаем размер шрифтов везде одинаковым */
+	outline: none;
+}
+input[type="checkbox"] { 	/* вертикальное выравнивание чекбоксов и радиобатонов относительно меток */
+	vertical-align: bottom;
+}
+input[type="radio"] {
+	vertical-align: text-bottom;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display:block;
+}
+/* --------------- /reset.css --------------- */
+
+/* --------------- базовые настройки ---------*/
+html {
+	min-height:100%; /* всегда показываем вертикальную полосу прокрутки  */
+}
+body {
+    color: #404040;
+    text-align: left;
+    font-size: 1em; /* 1em - 16px используем безопасные шрифтовые CSS стеки */
+    min-height:100%;
+    font-family: 'Open Sans', sans-serif;
+    background: #f9f9f9;
+}
+a, a:visited { /* порядок правил для ссылок имеет значение */
+	color: #e6618c;
+	text-decoration: underline;
+}
+a:hover {
+	color: #fdf208;
+	text-decoration:none;
+}
+a:focus, a:active {
+	color: #c83867;
+	text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6{
+	font-weight:normal;
+}
+img{
+
+	max-width:100%;
+}
+.clr{
+	clear:both;
+}
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+/* --------------- /базовые настройки ---------*/
+
+header{
+    background: url(images/header-bg.jpg) center center no-repeat;
+    color:#fff;
+    text-align: center;
+    /* background-size - свойство css3 */
+    background-size: cover; 
+    padding: 135px 20px 90px 20px;
+}
+
+    header>h1{
+        /*Если 1em = 16px, то чтобы получить 60px, делим 60/16=3.75*/
+        font-size: 3.75em;
+        font-family: 'Raleway', sans-serif;
+        margin-bottom: 25px;
+    }
+    
+    header>h3{
+        /*Если 1em = 16px, то чтобы получить 18px, делим 18/16=1.125*/
+        font-size: 1.125em;
+        margin-bottom: 50px;
+        font-style: italic;
+    }
+    
+    header>p{
+        /*Если 1em = 16px, то чтобы получить 12px, делим 12/16=0.75*/
+        font-size: 0.75em;
+    }
+    .subscribe{
+        background: rgba(0,0,0,0.65);
+        /*Назначу display: table, чтобы ширина блока равнялась ширине его содержимого*/
+        display: table;
+        padding: 20px;
+        /*Центрирую блок*/ 
+        margin: 0 auto 10px auto;
+        border-radius: 5px;
+    }
+    .subscribe input{
+        /*Устанавливаю, чтобы верхняя строка каждого блока 
+        совпадала с верхней строкой каждого блока, выравниваю в одну линию*/
+        float: left;
+    }
+        /*Работаю с инпутами по их атрибутам*/
+        .subscribe input[type="text"], .subscribe input[type="email"] {
+            padding: 0; 	
+            border: 0;
+            width: 320px;
+            margin-right: 10px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            padding: 12px 20px 13px 20px;
+            /* box-sizing - свойство css3, позволяющее не заботиться какие 
+            значения padding и border установлены у блока, то есть при установке 
+            этого свойства ширина width будет включать в себя значения padding и border*/
+            box-sizing: border-box;
+        }
+         .subscribe input[type="submit"] {
+             background: #ae2c52;	
+             color: #fff;
+             border: 0;
+             font-size: 1.25em;
+             font-family: 'Open Sans', sans-serif;
+             font-weight: 700;
+             padding: 10px 35px;
+             cursor: pointer;
+        }
+        article{
+            /*Убираем горизонтальный скрол для адаптивности*/
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+            article>h1{
+                font-size: 3em;
+                text-align: center;
+                margin-bottom: 25px;
+            }
+            article>p{
+                margin-bottom: 30px;
+            }
+            .imageleft{
+                float: left;
+                margin: 0 30px 20px 0;
+            }
+            
+            /*Переопределяю стили, если ширина экрана меньше 950px*/
+            @media screen and (max-width: 950px){
+                .subscribe input[type="text"], .subscribe input[type="email"] {
+                    width: 260px;
+                }
+            }
+            
+            /*Переопределяю стили, если ширина экрана меньше 820px, 
+            то ставлю инпуты в столбик друг за другом*/
+            @media screen and (max-width: 820px){
+                .subscribe input[type="text"], .subscribe input[type="email"] {
+                    width: 320px;
+                    display: block;
+                    float: none;
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+                header{
+                    padding: 30px 20px;
+                }
+                    header>h1{
+                        /*Если 1em = 16px, то чтобы получить 60px, делим 60/16=3.75*/
+                        font-size: 2.75em;
+                        margin-bottom: 20px;
+                    }
+                    header>h3{
+                        margin-bottom: 25px;
+                    }
+            }
+            
+            /*Переопределяю стили, если ширина экрана меньше 400px, 
+            то уменьшаю ширину инпутов до 220px*/
+            @media screen and (max-width: 400px){
+                .subscribe input[type="text"], .subscribe input[type="email"] {
+                    width: 220px;
+                }
+            }
+            
+            
+            
